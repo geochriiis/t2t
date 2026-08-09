@@ -1,22 +1,25 @@
 # Lake Macquarie rainfall processing
 
-This project calculates area-weighted annual R20mm values for Lake Macquarie from the supplied NetCDF files.
+This project calculates area-weighted annual R20mm values for Lake Macquarie from supplied NetCDF files.
 
 ## Windows setup and use
 
-### 1. Copy the project files
+### 1. Copy or clone the code repository
 
-Copy this entire folder to a location on the colleague's computer, for example:
+Copy or clone this repository to a location on your computer, for example:
 
 `C:\Users\YourName\Documents\LakeMacquarieRainfall`
 
-The folder must include:
+Your project folder should contain the following code and dependency files:
 
 - `lake_macquarie_rainfall.py`
 - `pyproject.toml`
 - `uv.lock`
-- `Rainfall2_Historical` (including all NetCDF files and subfolders)
-- `LGA Boundary EPSG 4326.gpkg`
+
+The large input datasets are intentionally not included in this repository. Make sure you have received them separately, then save them anywhere convenient on your computer:
+
+- a `Rainfall2_Historical` folder, including all NetCDF files and subfolders;
+- the `LGA Boundary EPSG 4326.gpkg` file.
 
 ### 2. Install uv (one time only)
 
@@ -34,7 +37,7 @@ uv --version
 
 ### 3. Navigate to the project folder
 
-Replace the example path with the folder copied in step 1:
+Replace the example path with the location of the project folder on your computer:
 
 ```powershell
 cd "C:\Users\YourName\Documents\LakeMacquarieRainfall"
@@ -52,13 +55,13 @@ uv sync
 
 ### 5. Update the three paths in the Python script
 
-Open `lake_macquarie_rainfall.py` in a text editor. At the top of the file, replace the three path settings with the colleague's actual folder path.
+Open `lake_macquarie_rainfall.py` in a text editor. At the top of the file, set the three paths to the locations on your computer for the project, NetCDF folder, and GeoPackage. The source data does **not** need to sit inside the project folder.
 
-For example, if the project is in `C:\Users\YourName\Documents\LakeMacquarieRainfall`, use:
+For example, if your project is in `C:\Users\YourName\Documents\LakeMacquarieRainfall`, your NetCDF files are on `D:\ClimateData`, and your GeoPackage is in `D:\Boundaries`, use:
 
 ```python
-NETCDF_ROOT = Path(r"C:\Users\YourName\Documents\LakeMacquarieRainfall\Rainfall2_Historical")
-LAKE_GPKG = Path(r"C:\Users\YourName\Documents\LakeMacquarieRainfall\LGA Boundary EPSG 4326.gpkg")
+NETCDF_ROOT = Path(r"D:\ClimateData\Rainfall2_Historical")
+LAKE_GPKG = Path(r"D:\Boundaries\LGA Boundary EPSG 4326.gpkg")
 OUTPUT_XLSX = Path(r"C:\Users\YourName\Documents\LakeMacquarieRainfall\lake_macquarie_r20mm_by_year.xlsx")
 ```
 
@@ -72,11 +75,11 @@ From PowerShell, while still in the project folder, run:
 uv run python lake_macquarie_rainfall.py
 ```
 
-The output file will be created at the `OUTPUT_XLSX` path set in step 5.
+Your Excel output file will be created at the `OUTPUT_XLSX` path you set in step 5.
 
 ## Troubleshooting
 
 - **`uv` is not recognised:** Close and reopen PowerShell, then run `uv --version` again.
 - **A path was not found:** Check the three paths at the top of `lake_macquarie_rainfall.py`, including the spelling of the GeoPackage filename.
 - **No NetCDF files were found:** Confirm `NETCDF_ROOT` points to the folder that contains the `Rainfall2_Historical` subfolders.
-- **Permission error writing Excel:** Set `OUTPUT_XLSX` to a folder the colleague can write to, such as their Documents folder.
+- **Permission error writing Excel:** Set `OUTPUT_XLSX` to a folder you can write to, such as your Documents folder.
