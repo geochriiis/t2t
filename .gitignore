@@ -1,0 +1,7 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+~$*.xlsx
+lake_macquarie_r20mm_by_year.xlsx
+lake_macquarie_r20mm_full_cells_diagnostic.xlsx
