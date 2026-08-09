@@ -12,7 +12,7 @@ Copy or clone this repository to a location on your computer, for example:
 
 Your project folder should contain the following code and dependency files:
 
-- `lake_macquarie_rainfall.py`
+- `lake_macquarie_rainfall_liza.py`
 - `pyproject.toml`
 - `uv.lock`
 
@@ -55,7 +55,7 @@ uv sync
 
 ### 5. Update the three paths in the Python script
 
-Open `lake_macquarie_rainfall.py` in a text editor. At the top of the file, set the three paths to the locations on your computer for the project, NetCDF folder, and GeoPackage. The source data does **not** need to sit inside the project folder.
+Open `lake_macquarie_rainfall_liza.py` in a text editor. At the top of the file, replace the three example paths with the locations on your computer for the NetCDF folder, GeoPackage, and Excel output. The source data does **not** need to sit inside the project folder.
 
 For example, if your project is in `C:\Users\YourName\Documents\LakeMacquarieRainfall`, your NetCDF files are on `D:\ClimateData`, and your GeoPackage is in `D:\Boundaries`, use:
 
@@ -72,7 +72,7 @@ Keep the `r` before each quoted path. It makes Windows backslashes safe in Pytho
 From PowerShell, while still in the project folder, run:
 
 ```powershell
-uv run python lake_macquarie_rainfall.py
+uv run python lake_macquarie_rainfall_liza.py
 ```
 
 Your Excel output file will be created at the `OUTPUT_XLSX` path you set in step 5.
@@ -80,6 +80,6 @@ Your Excel output file will be created at the `OUTPUT_XLSX` path you set in step
 ## Troubleshooting
 
 - **`uv` is not recognised:** Close and reopen PowerShell, then run `uv --version` again.
-- **A path was not found:** Check the three paths at the top of `lake_macquarie_rainfall.py`, including the spelling of the GeoPackage filename.
+- **A path was not found:** Check the three paths at the top of `lake_macquarie_rainfall_liza.py`, including the spelling of the GeoPackage filename.
 - **No NetCDF files were found:** Confirm `NETCDF_ROOT` points to the folder that contains the `Rainfall2_Historical` subfolders.
 - **Permission error writing Excel:** Set `OUTPUT_XLSX` to a folder you can write to, such as your Documents folder.
