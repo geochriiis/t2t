@@ -1,6 +1,19 @@
-# Lake Macquarie rainfall processing
+# Lake Macquarie climate projections
 
-This project calculates area-weighted annual R20mm values for Lake Macquarie from supplied NetCDF files.
+This repository contains the reusable rainfall-processing script and the completed, client-facing Lake Macquarie climate-projections workbook.
+
+## Completed projections workbook
+
+`T2T Data updates_projections_clean.xlsx` is the clean workbook prepared for sharing. It includes:
+
+- Rainfall 2: annual days with rainfall of at least 20 mm;
+- Bushfire: annual days with severe fire weather (FFDI > 50);
+- Heat: annual days with maximum temperature of at least 35°C;
+- Rainfall 1: retained from the previously completed work.
+
+The updated climate values are LGA-wide area-weighted annual averages from the supplied NARCliM NetCDF data. The workbook presents the requested model spread as 10th, 50th and 90th percentiles for the baseline, 2050 and 2090 periods.
+
+The original datasets, local boundary GeoPackage, project instructions and internal calculation/QA workbook are deliberately not included in this repository.
 
 ## Windows setup and use
 
